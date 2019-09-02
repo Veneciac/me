@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 
 class Project extends Component {
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <text>ini project</text>
+      </div>
+    );
   }
 }
 export default Project;
