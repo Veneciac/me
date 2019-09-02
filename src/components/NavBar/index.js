@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 class NavBar extends Component {
   state = { activeItem: 'home' };
+
+  componentDidMount() {
+    this.setState({
+      activeItem: this.props.location.pathname.slice(1, this.props.location.pathname.length)
+    });
+  }
 
   handleItemClick = (e, { name }) => {
     this.setState({ activeItem: name });
@@ -46,11 +52,11 @@ class NavBar extends Component {
                 style={{
                   marginHorizontal: '1vw'
                 }}
-                name="projects"
-                active={activeItem === 'projects'}
+                name="project"
+                active={activeItem === 'project'}
                 onClick={() => {
                   history.push('/project');
-                  this.setState({ activeItem: 'projects' });
+                  this.setState({ activeItem: 'project' });
                 }}
               />
             )}
@@ -65,7 +71,7 @@ class NavBar extends Component {
                 name="profile"
                 active={activeItem === 'profile'}
                 onClick={() => {
-                  history.push('/me');
+                  history.push('/profile');
                   this.setState({ activeItem: 'profile' });
                 }}
               />
@@ -76,4 +82,4 @@ class NavBar extends Component {
     );
   }
 }
-export default NavBar;
+export default withRouter(NavBar);
