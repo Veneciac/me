@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import { Image } from 'semantic-ui-react';
+// import { Image } from 'semantic-ui-react';
 
 class ProjectDetail extends Component {
   componentDidMount() {
-    console.log('PARAMS', this.props.location.detail)
+    console.log('PARAMS', this.props.location.detail);
   }
 
   render() {
-    return <div>
-
-    </div>;
+    return <div></div>;
   }
 }
 
