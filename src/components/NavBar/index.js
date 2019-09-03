@@ -6,9 +6,15 @@ class NavBar extends Component {
   state = { activeItem: 'home' };
 
   componentDidMount() {
-    this.setState({
-      activeItem: this.props.location.pathname.slice(1, this.props.location.pathname.length)
-    });
+    if (this.props.location.pathname === '/') {
+      this.setState({
+        activeItem: 'home'
+      });
+    } else {
+      this.setState({
+        activeItem: this.props.location.pathname.slice(1, this.props.location.pathname.length)
+      });
+    }
   }
 
   handleItemClick = (e, { name }) => {
